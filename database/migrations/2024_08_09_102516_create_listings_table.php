@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('listings_table_', function (Blueprint $table) {
+        Schema::create('listings', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('tags');
@@ -23,13 +23,12 @@ return new class extends Migration
             $table->timestamps();
         });
     }
-    
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('listings_table_');
+        Schema::dropIfExists('listings');
     }
 };

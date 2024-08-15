@@ -30,3 +30,18 @@ Route::get('/listings/{id}', function($id){
         'listing' => Listing::find($id)
     ]);
 });
+
+// Route::get('/home', function(){
+//     return view("home",[
+//         'name' 
+//     ]);
+// });
+
+// Route::get('/about', function(){
+//     return view("about");
+// });
+
+
+// ["name","boy","girl"];
+// [true,false,true,];
+// '[{name:"arinze",age:45},{"nonso":"arinze"},{"nonso":"arinze"}];';
