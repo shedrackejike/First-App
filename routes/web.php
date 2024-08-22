@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\listingController;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Listing;
@@ -16,32 +17,17 @@ use App\Models\Listing;
 */
 
 //All listing
-Route::get('/', function () {
-    return view('listings', [
-        'heading' => 'Latest Listings',
-        'listings' => Listing::all()
-    ]); 
-});
+Route::get('/', [listingController::class, 'index ']);
 
 
 //single Listing 
-Route::get('/listings/{id}', function($id){
-    return view('listing', [
-        'listing' => Listing::find($id)
-    ]);
-});
+Route::get('/listings/{listing}', [listingController::class,  'show']);
 
-// Route::get('/home', function(){
-//     return view("home",[
-//         'name' 
-//     ]);
-// });
-
-// Route::get('/about', function(){
-//     return view("about");
-// });
-
-
-// ["name","boy","girl"];
-// [true,false,true,];
-// '[{name:"arinze",age:45},{"nonso":"arinze"},{"nonso":"arinze"}];';
+// Common Resoure Routes
+// index - Show all listings
+// show - Show single listing
+// create - Show form to create new listing
+// store - Store new listing
+// edit - Show form to edit listing
+// update - Update listing
+// destroy - Delete listing  
