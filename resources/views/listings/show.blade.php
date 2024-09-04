@@ -1,6 +1,6 @@
-@extends('layout')
+<x-layout>  
 
-@section('content')
+
 @include('partials._search')
 
 
@@ -8,7 +8,7 @@
 ><i class="fa-solid fa-arrow-left"></i> Back
 </a>
 <div class="mx-4">
-<x-card class="p-10 bg-black">
+<x-card class="p-10 bg-0">
     <div
         class="flex flex-col items-center justify-center text-center"
     >
@@ -52,4 +52,4 @@
     </div>
 </x-card>
 </div>
-@endsection
+</x-layout> 

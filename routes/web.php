@@ -16,13 +16,6 @@ use App\Models\Listing;
 |
 */
 
-//All listing
-Route::get('/', [listingController::class, 'index ']);
-
-
-//single Listing 
-Route::get('/listings/{listing}', [listingController::class,  'show']);
-
 // Common Resoure Routes
 // index - Show all listings
 // show - Show single listing
@@ -31,3 +24,11 @@ Route::get('/listings/{listing}', [listingController::class,  'show']);
 // edit - Show form to edit listing
 // update - Update listing
 // destroy - Delete listing  
+
+//All listing
+Route::get('/', [listingController::class, 'index']);
+
+
+//single Listing 
+Route::get('/listings/{listing}', [listingController::class,  'show']);
+
