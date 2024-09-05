@@ -17,7 +17,7 @@
             src="{{asset('images/acme.png')}}"
             alt=""
         />
-
+        <a href="{{ route('createJob') }}">Create Job</a>
         <h3 class="text-2xl mb-2">Senior Laravel Developer</h3>
         <div class="text-xl font-bold mb-4">{{$listing->company}}</div>
 
