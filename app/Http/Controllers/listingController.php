@@ -14,7 +14,7 @@ class listingController extends Controller
         // dd($request); 
         return view('listings.index', [
             'heading' => 'Latest Listings',
-            'listings' => Listing::latest()->filter(request(['tag','search']))->get( )
+            'listings' => Listing::latest()->filter(request(['tag','search']))->paginate(2)
         ]);  
     }
     //show single listing
@@ -42,7 +42,49 @@ class listingController extends Controller
             'description' => 'required' 
         ]); 
 
-        return redirect('/');
+        if ($request->hasFile('logo')) {
+            $formFields['logo'] = $request->file('logo')->store('logos ', 'public');
+        }
+
+        Listing::create($formFields); 
+
+        return redirect('/')->with('message', 'Listing created succssfully!');
     }
+
+    //Show Edit form
+    public function edit(Listing $listing){
+        return view('listings.edit',['listing' => $listing]);
+    }
+
+
+
+
+      //update Listing Data
+      public function update(Request $request, Listing $listing ){
+        $formFields = $request->validate([
+            'title' => 'required',
+            'company' => ['required', ],
+            'location' => 'required',
+            'website' => 'required',
+            'email' => ['required', 'email'],
+            'tags' => 'required',
+            'description' => 'required' 
+        ]);  
+
+        if ($request->hasFile('logo')) {
+            $formFields['logo'] = $request->file('logo')->store('logos ', 'public');
+        }
+
+        $listing->update ($formFields); 
+
+        return redirect('/')->with('message', 'Listing updated succssfully!');
+        
+    }
+
+        //Delete listing 
+        public function destroy(Listing $listing){
+            $listing->delete();
+            return redirect('/')->with('message', 'Listing deleted succssfull!');
+        }
 
 }
