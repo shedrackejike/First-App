@@ -16,7 +16,7 @@ class UserController extends Controller
 
     //Create New User
     public function store(Request $request) {
-        dd($request);
+        // dd($request);
 
         
         $formFields = $request->validate([
@@ -25,7 +25,7 @@ class UserController extends Controller
             'password' => 'required|confirmed|min:6'
         ]);
 
-        dd($request);
+        // dd($request);
 
 
         // Hash Password
@@ -58,7 +58,8 @@ class UserController extends Controller
     }
 
         // Authenticate User
-        public function authenticate(Request $request) {
+        
+public function authenticate(Request $request) {
             $formFields = $request->validate([
                 'email' => ['required', 'email'],
                 'password' => 'required'

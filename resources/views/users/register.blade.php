@@ -72,11 +72,11 @@
             <input
                 type="password"
                 class="border border-gray-200 rounded p-2 w-full"
-                name="password_comfirmation"
-                value="{{old('password_comfirmation')}}"
+                name="password_confirmation"
+                value="{{old('password_confirmation')}}"
 
-            />
-            @error('passwor_comfirmation')
+            /> 
+            @error('passwor_confirmation')
             <p class="text-red-500 text-xs mt-1">{{$message}}</p>
         @enderror
         </div>
